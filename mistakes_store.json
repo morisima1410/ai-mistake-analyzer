@@ -1,0 +1,50 @@
+[
+  {
+    "id": 3,
+    "question": "Write a Python loop to print 0 to 4",
+    "student_answer": "for i in range(5) print(i)",
+    "subject": "Programming",
+    "is_correct": false,
+    "mistake_type": "Syntax Mistake",
+    "confidence": 1,
+    "correct_answer": "for i in range(5):\n    print(i)",
+    "why_wrong": "The code is missing a colon (:) at the end of the 'for' statement, which is required in Python to define the start of a loop block.",
+    "explanation": "In Python, when you define a loop using 'for', you must place a colon at the end of the line. Additionally, the code inside the loop should be indented on the next line so that Python knows it belongs to that loop.",
+    "learning_tip": "Always remember that control flow statements like 'for', 'if', and 'while' in Python require a colon at the end of the header line. Think of the colon as a way to tell Python, 'Here comes the block of code I want to run!'",
+    "practice_question": "Write a Python loop that prints the numbers 1 through 3.",
+    "difficulty": "Easy",
+    "created_at": "2026-09-30 11:47:00"
+  },
+  {
+    "id": 2,
+    "question": "What is the capital of France?",
+    "student_answer": "Paris",
+    "subject": "General",
+    "is_correct": true,
+    "mistake_type": "No Mistake",
+    "confidence": 1,
+    "correct_answer": "Paris",
+    "why_wrong": "None. The answer is correct.",
+    "explanation": "You are absolutely correct! Paris is indeed the capital city of France.",
+    "learning_tip": "Keep up the great work! You have a solid grasp of world geography.",
+    "practice_question": "What is the capital city of Germany?",
+    "difficulty": "Easy",
+    "created_at": "2026-09-30 11:46:54"
+  },
+  {
+    "id": 1,
+    "question": "What is 5 × 6?",
+    "student_answer": "35",
+    "subject": "Mathematics",
+    "is_correct": false,
+    "mistake_type": "Calculation Mistake",
+    "confidence": 0.98,
+    "correct_answer": "30",
+    "why_wrong": "The student wrote 35, which is the product of 5 × 7, rather than 5 × 6.",
+    "explanation": "Multiplying 5 × 6 means adding the number 5 together 6 times (5 + 5 + 5 + 5 + 5 + 5), which gives 30. The answer 35 corresponds to 5 × 7.",
+    "learning_tip": "When multiplying by 5, skip-counting by fives can help you double-check your answer: 5, 10, 15, 20, 25, 30!",
+    "practice_question": "What is 5 × 4?",
+    "difficulty": "Easy",
+    "created_at": "2026-09-30 11:46:43"
+  }
+]

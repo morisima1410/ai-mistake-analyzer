@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - AI Mistake Analyzer</title>
+  <meta name="description" content="Login to your AI Mistake Analyzer account to continue learning.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Minimal Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <span class="brand-icon">✓</span>
+        <span>AI Mistake Analyzer</span>
+      </a>
+      <a href="/register.html" class="nav-link">Register</a>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <div class="card" style="margin-top: 2rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 1.85rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.35rem;">Welcome Back</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">“Continue your learning journey.”</p>
+      </div>
+
+      <!-- Success or Error Alert -->
+      <div id="authSuccessAlert" class="alert alert-success" style="display: none;" role="status">
+        <span id="authSuccessMsg">Account created successfully. Please login.</span>
+      </div>
+
+      <div id="authAlert" class="alert alert-danger" style="display: none;" role="alert">
+        <span id="authAlertMsg">Invalid email or password.</span>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="emailInput" class="form-label">Email</label>
+          <input
+            type="email"
+            id="emailInput"
+            name="email"
+            class="form-input"
+            placeholder="student@example.com"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input
+            type="password"
+            id="passwordInput"
+            name="password"
+            class="form-input"
+            placeholder="Enter your password"
+            required
+            autocomplete="current-password"
+          >
+        </div>
+
+        <button type="submit" id="loginBtn" class="btn btn-primary btn-block" style="margin-top: 1rem;">
+          Login
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.75rem; color: var(--text-muted); font-size: 0.925rem;">
+        Don't have an account?
+        <a href="/register.html" style="color: #a78bfa; font-weight: 600; text-decoration: none; margin-left: 0.25rem;">Create Account →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>AI Mistake Analyzer &bull; Built with FastAPI, scikit-learn, and Gemini</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>

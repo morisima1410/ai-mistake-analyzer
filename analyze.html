@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyze - AI Mistake Analyzer</title>
+  <meta name="description" content="Turn your mistakes into learning opportunities.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Protected Dashboard Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/dashboard.html" class="brand">
+        <span class="brand-icon">✓</span>
+        <span>AI Mistake Analyzer</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="/analyze.html" class="nav-link active">Analyze</a></li>
+          <li><a href="/history.html" class="nav-link">History</a></li>
+          <li><a href="/contact.html" class="nav-link">Contact</a></li>
+          <li><a href="/profile.html" class="nav-link">Profile</a></li>
+          <li><a href="/about.html" class="nav-link">About Us</a></li>
+          <li><a href="#logout" id="logoutBtn" class="nav-link logout-link">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 2rem;">
+      <h1 style="font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.35rem;">
+        Analyze Your Answer
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">“Turn your mistakes into learning opportunities.”</p>
+    </div>
+
+    <!-- Error Alert -->
+    <div id="errorAlert" class="alert alert-danger" style="display: none;" role="alert">
+      <span>⚠️</span>
+      <span id="errorMessage">An error occurred.</span>
+    </div>
+
+    <!-- Analyze Form Card -->
+    <section class="card">
+      <form id="analyzeForm" novalidate>
+        <div class="form-group">
+          <label for="questionInput" class="form-label">Question</label>
+          <textarea
+            id="questionInput"
+            name="question"
+            class="form-textarea"
+            placeholder="Type or paste the problem statement or question..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="answerInput" class="form-label">Your Answer</label>
+          <textarea
+            id="answerInput"
+            name="student_answer"
+            class="form-textarea"
+            placeholder="Type your exact solution or answer..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="subjectSelect" class="form-label">Subject</label>
+          <select id="subjectSelect" name="subject" class="form-select" required>
+            <option value="" disabled selected>-- Select Subject --</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Programming">Programming</option>
+            <option value="Science">Science</option>
+            <option value="English">English</option>
+            <option value="General">General</option>
+          </select>
+        </div>
+
+        <button type="submit" id="analyzeBtn" class="btn btn-primary btn-block">
+          ✨ Analyze Mistake
+        </button>
+      </form>
+    </section>
+
+    <!-- Loading State -->
+    <div id="loadingIndicator" class="card loading-box" style="display: none;">
+      <div class="spinner"></div>
+      <div class="loading-text">Analyzing your answer...</div>
+      <div class="loading-subtext">Evaluating reasoning, identifying mistake type, and formulating learning tips</div>
+    </div>
+
+    <!-- AI Diagnostic Result Card -->
+    <section id="resultCard" class="card result-card" style="display: none;">
+      <div class="result-header">
+        <div id="resultStatus" class="result-status"></div>
+        <div class="meta-badges">
+          <span id="badgeMistakeType" class="badge badge-warning">Mistake Type</span>
+          <span id="badgeConfidence" class="badge badge-info">95% Confidence</span>
+          <span id="badgeDifficulty" class="badge badge-difficulty-easy">Difficulty: Easy</span>
+        </div>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-section" id="sectionCorrectAnswerBox">
+          <div class="section-label">Correct Answer</div>
+          <div id="resultCorrectAnswer" class="section-content" style="font-weight: 700; color: #c4b5fd;"></div>
+        </div>
+
+        <div class="result-section" id="sectionWhyWrongBox">
+          <div class="section-label">What Went Wrong</div>
+          <div id="resultWhyWrong" class="section-content"></div>
+        </div>
+
+        <div class="result-section">
+          <div class="section-label">Explanation</div>
+          <div id="resultExplanation" class="section-content"></div>
+        </div>
+
+        <div class="result-section tip-box">
+          <div class="section-label">Learning Tip</div>
+          <div id="resultLearningTip" class="section-content"></div>
+        </div>
+
+        <div class="result-section practice-box">
+          <div class="section-label">Practice Question</div>
+          <div id="resultPracticeQuestion" class="section-content" style="font-weight: 600;"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>AI Mistake Analyzer &bull; Built with FastAPI, scikit-learn, and Gemini</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/analyze.js"></script>
+</body>
+</html>

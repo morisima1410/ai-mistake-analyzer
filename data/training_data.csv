@@ -1,0 +1,62 @@
+text,label
+"5 * 6 = 35",Calculation Mistake
+"12 / 4 = 4",Calculation Mistake
+"7 + 8 = 16",Calculation Mistake
+"25 - 9 = 14",Calculation Mistake
+"3 * 9 = 24",Calculation Mistake
+"15 % 4 = 2",Calculation Mistake
+"100 / 5 = 25",Calculation Mistake
+"8 * 7 = 54",Calculation Mistake
+"45 + 55 = 110",Calculation Mistake
+"9 * 9 = 82",Calculation Mistake
+"The speed of light is infinite",Conceptual Mistake
+"Heavy objects fall faster than light objects in vacuum",Conceptual Mistake
+"Mitochondria is the control center of the cell",Conceptual Mistake
+"Gravity is a magnetic attraction between poles",Conceptual Mistake
+"Plants produce oxygen through cellular respiration at night only",Conceptual Mistake
+"All prime numbers are odd",Conceptual Mistake
+"Dividing by zero gives infinity",Conceptual Mistake
+"Energy can be created from nothing if heated enough",Conceptual Mistake
+"Sound travels faster in air than in solid steel",Conceptual Mistake
+"Humans only use ten percent of their brain capacity",Conceptual Mistake
+"print('Hello World'",Syntax Mistake
+"if x == 5",Syntax Mistake
+"variable is not defined",Syntax Mistake
+"for i in range(10)",Syntax Mistake
+"def my_func() return 5",Syntax Mistake
+"let obj = { a: 1, b: 2",Syntax Mistake
+"while True console.log('hi')",Syntax Mistake
+"const 123name = 'test'",Syntax Mistake
+"import math print(math.pi)",Syntax Mistake
+"NameError: name 'counter' is not defined",Syntax Mistake
+"forgot to carry the 1 in addition",Careless Mistake
+"copied 34 instead of 43 from the question",Careless Mistake
+"misread plus as minus in the equation",Careless Mistake
+"accidentally missed the negative sign in front of the answer",Careless Mistake
+"wrote meters instead of kilometers as units",Careless Mistake
+"typed false instead of true by accident",Careless Mistake
+"forgot the decimal point in 12.5",Careless Mistake
+"missed the second part of a two part question",Careless Mistake
+"wrote 6 instead of 9 due to flipping the digit",Careless Mistake
+"forgot to explain the answer",Incomplete Answer
+"just wrote x = 4 without showing steps",Incomplete Answer
+"provided only the formula without substituting values",Incomplete Answer
+"gave half the definition of photosynthesis",Incomplete Answer
+"listed one symptom instead of three requested",Incomplete Answer
+"stopped solving after finding the first root",Incomplete Answer
+"only answered true without providing justification",Incomplete Answer
+"partially wrote the function without returning a value",Incomplete Answer
+"used addition formula when multiplication was required",Wrong Method
+"applied Pythagorean theorem to a non right triangle",Wrong Method
+"used linear interpolation on an exponential curve",Wrong Method
+"attempted to differentiate instead of integrate",Wrong Method
+"used bubble sort logic for a binary search problem",Wrong Method
+"used Ohm's law V=IR incorrectly solving for series resistance",Wrong Method
+"treated dependent events as independent probabilities",Wrong Method
+"applied conservation of momentum in an open dissipative system",Wrong Method
+"5 * 6 = 30",No Mistake
+"What is 2 + 2? Answer is 4",No Mistake
+"Water freezes at 0 degrees Celsius",No Mistake
+"print('hello') prints hello to the console",No Mistake
+"DNA stands for Deoxyribonucleic Acid",No Mistake
+"Area of rectangle is length times width",No Mistake

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - AI Mistake Analyzer</title>
+  <meta name="description" content="Get in touch with the AI Mistake Analyzer team.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Protected Dashboard Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/dashboard.html" class="brand">
+        <span class="brand-icon">✓</span>
+        <span>AI Mistake Analyzer</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="/analyze.html" class="nav-link">Analyze</a></li>
+          <li><a href="/history.html" class="nav-link">History</a></li>
+          <li><a href="/contact.html" class="nav-link active">Contact</a></li>
+          <li><a href="/profile.html" class="nav-link">Profile</a></li>
+          <li><a href="/about.html" class="nav-link">About Us</a></li>
+          <li><a href="#logout" id="logoutBtn" class="nav-link logout-link">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 640px;">
+    <div style="margin-bottom: 2rem;">
+      <h1 style="font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.35rem;">
+        Contact Us
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">Have questions, feedback, or need support? Reach out to us.</p>
+    </div>
+
+    <!-- Feedback Banner -->
+    <div id="contactSuccessAlert" class="alert alert-success" style="display: none;" role="status">
+      <span id="contactSuccessMsg">Your message has been sent successfully.</span>
+    </div>
+    <div id="contactErrorAlert" class="alert alert-danger" style="display: none;" role="alert">
+      <span id="contactErrorMsg">An error occurred.</span>
+    </div>
+
+    <section class="card">
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="contactNameInput" class="form-label">Name</label>
+          <input
+            type="text"
+            id="contactNameInput"
+            name="name"
+            class="form-input"
+            placeholder="Your name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="contactEmailInput" class="form-label">Email</label>
+          <input
+            type="email"
+            id="contactEmailInput"
+            name="email"
+            class="form-input"
+            placeholder="your.email@example.com"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessageInput" class="form-label">Message</label>
+          <textarea
+            id="contactMessageInput"
+            name="message"
+            class="form-textarea"
+            rows="5"
+            placeholder="How can we help you?"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" id="sendContactBtn" class="btn btn-primary btn-block" style="margin-top: 1rem;">
+          Send Message
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>AI Mistake Analyzer &bull; Built with FastAPI, scikit-learn, and Gemini</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/contact.js"></script>
+</body>
+</html>

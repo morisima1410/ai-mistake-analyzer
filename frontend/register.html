@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Account - AI Mistake Analyzer</title>
+  <meta name="description" content="Start learning from your mistakes with AI Mistake Analyzer.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Minimal Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <span class="brand-icon">✓</span>
+        <span>AI Mistake Analyzer</span>
+      </a>
+      <a href="/login.html" class="nav-link">Login</a>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <div class="card" style="margin-top: 1.5rem;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h1 style="font-size: 1.85rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.35rem;">Create Your Account</h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">“Start learning from your mistakes.”</p>
+      </div>
+
+      <!-- Alert -->
+      <div id="authAlert" class="alert alert-danger" style="display: none;" role="alert">
+        <span id="authAlertMsg">Error</span>
+      </div>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="fullNameInput" class="form-label">Full Name</label>
+          <input
+            type="text"
+            id="fullNameInput"
+            name="full_name"
+            class="form-input"
+            placeholder="John Doe"
+            required
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="emailInput" class="form-label">Email</label>
+          <input
+            type="email"
+            id="emailInput"
+            name="email"
+            class="form-input"
+            placeholder="student@example.com"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input
+            type="password"
+            id="passwordInput"
+            name="password"
+            class="form-input"
+            placeholder="At least 6 characters"
+            required
+            autocomplete="new-password"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPasswordInput"
+            name="confirm_password"
+            class="form-input"
+            placeholder="Re-enter your password"
+            required
+            autocomplete="new-password"
+          >
+        </div>
+
+        <button type="submit" id="registerBtn" class="btn btn-primary btn-block" style="margin-top: 1rem;">
+          Create Account
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.75rem; color: var(--text-muted); font-size: 0.925rem;">
+        Already have an account?
+        <a href="/login.html" style="color: #a78bfa; font-weight: 600; text-decoration: none; margin-left: 0.25rem;">Login →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>AI Mistake Analyzer &bull; Built with FastAPI, scikit-learn, and Gemini</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>

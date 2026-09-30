@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - AI Mistake Analyzer</title>
+  <meta name="description" content="About AI Mistake Analyzer - AI-powered learning platform.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Protected Dashboard Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/dashboard.html" class="brand">
+        <span class="brand-icon">✓</span>
+        <span>AI Mistake Analyzer</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="/analyze.html" class="nav-link">Analyze</a></li>
+          <li><a href="/history.html" class="nav-link">History</a></li>
+          <li><a href="/contact.html" class="nav-link">Contact</a></li>
+          <li><a href="/profile.html" class="nav-link">Profile</a></li>
+          <li><a href="/about.html" class="nav-link active">About Us</a></li>
+          <li><a href="#logout" id="logoutBtn" class="nav-link logout-link">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="text-align: center; max-width: 760px; margin: 0 auto 3rem;">
+      <h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.035em; margin-bottom: 1rem;">
+        About AI Mistake Analyzer
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.15rem; line-height: 1.65;">
+        AI Mistake Analyzer is an AI-powered learning platform designed to help students understand their mistakes and improve through personalized explanations and practice.
+      </p>
+    </div>
+
+    <!-- 3 Simple Feature Cards -->
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-card-icon">🔍</div>
+        <h3>AI Analysis</h3>
+        <p>Understand why an answer is wrong.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-icon">💡</div>
+        <h3>Smart Learning</h3>
+        <p>Get personalized learning tips.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-icon">🚀</div>
+        <h3>Practice</h3>
+        <p>Generate similar questions to improve understanding.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>AI Mistake Analyzer &bull; Built with FastAPI, scikit-learn, and Gemini</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      setupMobileMenu();
+      await requireAuth();
+    });
+  </script>
+</body>
+</html>

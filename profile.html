@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - AI Mistake Analyzer</title>
+  <meta name="description" content="View and manage your account profile.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Protected Dashboard Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/dashboard.html" class="brand">
+        <span class="brand-icon">✓</span>
+        <span>AI Mistake Analyzer</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="/analyze.html" class="nav-link">Analyze</a></li>
+          <li><a href="/history.html" class="nav-link">History</a></li>
+          <li><a href="/contact.html" class="nav-link">Contact</a></li>
+          <li><a href="/profile.html" class="nav-link active">Profile</a></li>
+          <li><a href="/about.html" class="nav-link">About Us</a></li>
+          <li><a href="#logout" id="logoutBtn" class="nav-link logout-link">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 920px;">
+    <div style="margin-bottom: 2rem;">
+      <h1 style="font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.35rem;">
+        Profile
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">Manage your account details and information.</p>
+    </div>
+
+    <!-- Status Alerts -->
+    <div id="profileSuccessAlert" class="alert alert-success" style="display: none;" role="status">
+      <span id="profileSuccessMsg">Changes saved successfully.</span>
+    </div>
+    <div id="profileErrorAlert" class="alert alert-danger" style="display: none;" role="alert">
+      <span id="profileErrorMsg">An error occurred.</span>
+    </div>
+
+    <!-- Two-Column Profile Layout -->
+    <div class="profile-layout">
+      <!-- LEFT SIDE — Profile Image -->
+      <section class="card profile-avatar-card">
+        <div class="profile-avatar-wrapper">
+          <div class="profile-avatar-inner">
+            <svg class="profile-avatar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+        </div>
+        <h2 id="avatarUserName" class="profile-avatar-name">Loading...</h2>
+        <span class="profile-avatar-role">Student</span>
+      </section>
+
+      <!-- RIGHT SIDE — User Details -->
+      <section class="card profile-details-card">
+        <div>
+          <h2 class="card-title">
+            <span>👤</span>
+            <span>Profile Information</span>
+          </h2>
+
+          <form id="profileForm" novalidate>
+            <div class="form-group">
+              <label for="profileNameInput" class="form-label">Full Name</label>
+              <input
+                type="text"
+                id="profileNameInput"
+                name="full_name"
+                class="form-input"
+                placeholder="Your full name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="profileEmailInput" class="form-label">Email</label>
+              <input
+                type="email"
+                id="profileEmailInput"
+                class="form-input"
+                disabled
+                style="opacity: 0.7; cursor: not-allowed;"
+              >
+              <div style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.35rem;">
+                Email is associated with your account identity and cannot be changed directly.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Account Created</label>
+              <div id="profileCreatedAt" class="profile-detail-value">
+                Loading...
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <button type="submit" id="saveProfileBtn" class="btn btn-primary">
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>AI Mistake Analyzer &bull; Built with FastAPI, scikit-learn, and Gemini</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>

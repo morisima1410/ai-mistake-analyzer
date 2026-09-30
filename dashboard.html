@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - AI Mistake Analyzer</title>
+  <meta name="description" content="Dashboard for AI Mistake Analyzer">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Protected Dashboard Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/dashboard.html" class="brand">
+        <span class="brand-icon">✓</span>
+        <span>AI Mistake Analyzer</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="/dashboard.html" class="nav-link active">Dashboard</a></li>
+          <li><a href="/analyze.html" class="nav-link">Analyze</a></li>
+          <li><a href="/history.html" class="nav-link">History</a></li>
+          <li><a href="/contact.html" class="nav-link">Contact</a></li>
+          <li><a href="/profile.html" class="nav-link">Profile</a></li>
+          <li><a href="/about.html" class="nav-link">About Us</a></li>
+          <li><a href="#logout" id="logoutBtn" class="nav-link logout-link">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- User Greeting -->
+    <div style="margin-bottom: 2rem;">
+      <h1 id="greetingHeading" style="font-size: 2.25rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.35rem;">
+        Welcome Back, <span id="userNamePlaceholder">Student</span>
+      </h1>
+      <p style="color: var(--text-muted); font-size: 1.05rem;">“Ready to learn from your mistakes?”</p>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingDashboard" class="card loading-box">
+      <div class="spinner"></div>
+      <div class="loading-text">Loading dashboard analytics...</div>
+    </div>
+
+    <!-- Error State -->
+    <div id="dashboardError" class="alert alert-danger" style="display: none;" role="alert">
+      <span>⚠️</span>
+      <span id="dashboardErrorMsg">Could not load dashboard data.</span>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div id="dashboardContent" style="display: none;">
+      <!-- Key Statistics -->
+      <section class="stats-grid" aria-label="Key Statistics">
+        <div class="stat-card">
+          <span class="stat-label">Total Questions</span>
+          <span id="statTotal" class="stat-value">0</span>
+          <span class="stat-sub">Analyzed exercises</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-label">Correct Answers</span>
+          <span id="statCorrect" class="stat-value" style="color: var(--success-text);">0</span>
+          <span class="stat-sub">Validated correct</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-label">Mistakes</span>
+          <span id="statMistakes" class="stat-value" style="color: var(--danger-text);">0</span>
+          <span class="stat-sub">Diagnosed errors</span>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-label">Accuracy</span>
+          <span id="statAccuracy" class="stat-value" style="color: #c4b5fd;">0.0%</span>
+          <span class="stat-sub">Success percentage</span>
+        </div>
+      </section>
+
+      <!-- Mistake Breakdown -->
+      <section class="card">
+        <h2 class="card-title">
+          <span>📊</span>
+          <span>Mistake Breakdown</span>
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          Breakdown of your most frequent mistake categories:
+        </p>
+
+        <div id="emptyBreakdown" class="empty-state" style="display: none; padding: 1.5rem 0;">
+          <div class="empty-state-icon">🎉</div>
+          <h3>No mistakes recorded yet!</h3>
+          <p>Submit questions in Analyze to view your personal breakdown.</p>
+        </div>
+
+        <div id="breakdownList" class="breakdown-list"></div>
+      </section>
+
+      <!-- Recent Mistakes -->
+      <section class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h2 class="card-title" style="margin-bottom: 0;">
+            <span>⏱️</span>
+            <span>Recent Mistakes</span>
+          </h2>
+          <a href="/history.html" class="btn btn-outline btn-sm">View All History →</a>
+        </div>
+
+        <div id="emptyRecent" class="empty-state" style="display: none; padding: 1.5rem 0;">
+          <p>No recent mistakes found. Keep up the great work!</p>
+        </div>
+
+        <div id="recentList" class="recent-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>AI Mistake Analyzer &bull; Built with FastAPI, scikit-learn, and Gemini</p>
+  </footer>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

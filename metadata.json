@@ -1,6 +1,0 @@
-{
-  "name": "AI Mistake Analyzer",
-  "description": "An educational AI/ML web application that helps students understand their mistakes and learn smarter with step-by-step diagnostic feedback.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

@@ -1,157 +1,387 @@
 # 🧠 AI Mistake Analyzer
 
-> **“Understand your mistakes. Learn smarter.”**
+> **Understand your mistakes. Learn smarter.**
 
-An intelligent, educational AI/ML web application designed to help students deeply comprehend *why* an answer is incorrect rather than just giving away the solution. 
+AI Mistake Analyzer is an intelligent AI/ML-powered learning platform designed to help students understand **why an answer is incorrect**, rather than simply showing the correct answer.
 
-Instead of simple right/wrong feedback or judgmental criticism, **AI Mistake Analyzer** diagnoses the underlying cognitive pattern (calculation slip, conceptual misunderstanding, syntax omission, wrong methodology, or incomplete work), provides supportive step-by-step reasoning, gives actionable learning tips, and generates a personalized practice question.
-
----
-
-## 📸 Screenshots
-
-| Analyze Page | Diagnostic Feedback |
-| :---: | :---: |
-| *Intuitive question & answer input with subject presets* | *Pedagogical diagnosis with mistake taxonomy & practice questions* |
-
-| Mistake History | Learning Dashboard |
-| :---: | :---: |
-| *Searchable log of previous analyses with detail modal* | *Accuracy analytics & horizontal CSS mistake breakdowns* |
+The platform analyzes a student's response, identifies the type of mistake, explains what went wrong, provides personalized learning tips, and generates a similar practice question to help strengthen understanding.
 
 ---
 
-## 🌟 Key Features
+## ✨ Features
 
-1. **Non-Judgmental Pedagogical Feedback**:
-   - Classifies error patterns without discouraging the student.
-   - Distinct recognition of correct answers vs. 6 mistake classifications.
-2. **Pedagogical Breakdown**:
-   - **Correct/Incorrect Status**
-   - **Mistake Classification**: Conceptual, Calculation, Syntax, Careless, Incomplete, Wrong Method, or No Mistake.
-   - **Targeted Rationale**: "Why is this incorrect?"
-   - **Clear Explanation**: Student-friendly, step-by-step breakdown.
-   - **Learning Tip**: Actionable strategies to avoid similar mistakes in exams.
-   - **Follow-up Practice Question**: Custom problem to cement comprehension immediately.
-3. **Hybrid AI + Machine Learning Architecture**:
-   - Fast initial categorization via local **scikit-learn** model (`ml_model.py`).
-   - Deep reasoning, explanations, and dynamic questions powered by **Google Gemini** (`ai_service.py`).
-4. **Learning History & Session Tracking**:
-   - Automatically saves every analysis to a lightweight **SQLite** database (`mistakes` table).
-   - Review past questions, inspect detailed modals, or clear history anytime.
-5. **Interactive Analytics Dashboard**:
-   - Real-time calculations: Total Questions, Correct Answers, Mistakes Diagnosed, and Accuracy Percentage.
-   - Visual horizontal bar charts illustrating most common mistake patterns.
-6. **Pure Vanilla Frontend**:
-   - Built entirely with semantic HTML5, modern CSS3 (custom properties, responsive grid, zero framework bloat), and clean Vanilla JavaScript.
+### 🎯 Intelligent Mistake Analysis
+
+AI Mistake Analyzer can identify different types of mistakes, including:
+
+* 🧮 Calculation Mistake
+* 🧠 Conceptual Mistake
+* 💻 Syntax Mistake
+* ⚠️ Careless Mistake
+* 📝 Incomplete Answer
+* 🔄 Wrong Method
+* ✅ No Mistake
+
+The system is designed to provide supportive, educational feedback rather than simply marking an answer as wrong.
+
+### 🤖 AI-Powered Feedback
+
+For every submitted answer, the platform can provide:
+
+* Correct / Incorrect status
+* Mistake type
+* Confidence score
+* Correct answer
+* What went wrong
+* Simple explanation
+* Personalized learning tip
+* Similar practice question
+* Difficulty level
+
+### 🧠 Hybrid ML + AI Architecture
+
+The application combines traditional Machine Learning with Generative AI:
+
+* **scikit-learn** provides fast initial mistake classification.
+* **Google Gemini** provides deeper reasoning and educational explanations.
+* Gemini can use the ML prediction as additional context and determine the final diagnosis.
+
+### 📚 Learning History
+
+Students can:
+
+* View previous analyses
+* Inspect detailed feedback
+* Delete individual records
+* Clear their analysis history
+* Review recurring mistake patterns
+
+### 📊 Learning Dashboard
+
+The dashboard displays:
+
+* Total Questions
+* Correct Answers
+* Mistakes
+* Accuracy
+* Mistake Breakdown
+* Recent Mistakes
+
+### 🎨 Modern Dark UI
+
+The frontend is built with:
+
+* Semantic HTML5
+* Modern CSS3
+* Vanilla JavaScript
+* Responsive layouts
+* Dark-only premium interface
+* Mobile navigation
+
+No frontend framework is required.
+
+---
+
+## 📸 Application Flow
+
+```text
+Welcome
+   ↓
+Register
+   ↓
+Login
+   ↓
+Dashboard
+   ↓
+Analyze Answer
+   ↓
+AI + ML Analysis
+   ↓
+Detailed Feedback
+   ↓
+Practice Question
+   ↓
+History & Progress
+```
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**:
-  - HTML5 (Semantic, Accessible)
-  - CSS3 (Variables, Flexbox, Grid, Keyframe Animations, Horizontal Progress Bars)
-  - Vanilla JavaScript (ES6+ `async`/`await`, `fetch` API)
-- **Backend**:
-  - Python 3.10+
-  - FastAPI (High-performance async REST API & Static File Server)
-  - Uvicorn (ASGI web server)
-  - Pydantic v2 (Strict request/response schema validation)
-- **Machine Learning**:
-  - Python `scikit-learn`
-  - `TfidfVectorizer` (N-gram feature extraction)
-  - `LogisticRegression` (Multi-class classification)
-- **Generative AI**:
-  - Google Gemini API (`gemini-3.1-flash-lite`, `gemini-3.8-flash`) via the modern `google-genai` SDK
-- **Database**:
-  - SQLite3 (zero-configuration, persistent relational storage)
+### Frontend
+
+| Technology         | Purpose                              |
+| ------------------ | ------------------------------------ |
+| HTML5              | Page structure                       |
+| CSS3               | Responsive UI and styling            |
+| Vanilla JavaScript | Frontend logic and API communication |
+
+### Backend
+
+| Technology   | Purpose                         |
+| ------------ | ------------------------------- |
+| Python 3.10+ | Backend programming             |
+| FastAPI      | REST API and application server |
+| Uvicorn      | ASGI server                     |
+| Pydantic     | Data validation                 |
+
+### Machine Learning
+
+| Technology          | Purpose                 |
+| ------------------- | ----------------------- |
+| scikit-learn        | Machine Learning        |
+| TF-IDF              | Text feature extraction |
+| Logistic Regression | Mistake classification  |
+
+### Generative AI
+
+| Technology        | Purpose                               |
+| ----------------- | ------------------------------------- |
+| Google Gemini API | AI reasoning and educational feedback |
+| `google-genai`    | Gemini Python SDK                     |
+
+### Database
+
+| Technology | Purpose                       |
+| ---------- | ----------------------------- |
+| SQLite     | Persistent relational storage |
 
 ---
 
 ## 🏗️ System Architecture
 
 ```text
-┌─────────────────────────────────────────────────────────────┐
-│                      Vanilla Frontend                       │
-│     (index.html / history.html / dashboard.html / style.css)│
-└──────────────────────────────▲──────────────────────────────┘
-                               │ HTTP / JSON
-                               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    FastAPI Backend Engine                   │
-│                       (backend/main.py)                     │
-├──────────────────────────────┬──────────────────────────────┤
-│  REST API Routes             │  Static File Server          │
-│  - POST /api/analyze         │  - /css/style.css            │
-│  - GET  /api/history         │  - /js/*.js                  │
-│  - GET  /api/stats           │  - /*.html                   │
-└──────────────┬───────────────┴──────────────┬───────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                     VANILLA FRONTEND                         │
+│                                                              │
+│  HTML5 + CSS3 + Vanilla JavaScript                           │
+│                                                              │
+│  Dashboard | Analyze | History | Profile | Contact | About  │
+└─────────────────────────────┬────────────────────────────────┘
+                              │
+                         HTTP / JSON
+                              │
+                              ▼
+┌──────────────────────────────────────────────────────────────┐
+│                     FASTAPI BACKEND                          │
+│                                                              │
+│  Authentication | REST APIs | Validation | Business Logic   │
+└───────────────┬──────────────────────┬───────────────────────┘
+                │                      │
+                ▼                      ▼
+┌──────────────────────────┐   ┌──────────────────────────────┐
+│   SCIKIT-LEARN MODEL     │   │       GOOGLE GEMINI         │
+│                          │   │                              │
+│  TF-IDF Vectorizer       │   │  Deep reasoning             │
+│  Logistic Regression     │   │  Answer verification        │
+│  Initial classification  │   │  Educational explanation    │
+└──────────────┬───────────┘   │  Practice generation        │
+               │               └──────────────┬───────────────┘
                │                              │
-               ▼                              ▼
-┌──────────────────────────────┐ ┌─────────────────────────────┐
-│  scikit-learn Classifier     │ │  Google Gemini API          │
-│  (backend/ml_model.py)       │ │  (backend/ai_service.py)    │
-│  - TF-IDF Vectorizer         │ │  - Deep reasoning           │
-│  - Logistic Regression       │ │  - Structured JSON outputs  │
-│  - Rapid initial suggestion  │ │  - Educational diagnosis    │
-└──────────────────────────────┘ └─────────────────────────────┘
-                               ▲
-                               │
-               ┌───────────────┴──────────────┐
-               │    SQLite Database (mistakes)│
-               │    (backend/database.py)     │
-               └──────────────────────────────┘
+               └──────────────┬───────────────┘
+                              ▼
+                 ┌──────────────────────────┐
+                 │      SQLITE DATABASE      │
+                 │                          │
+                 │ Users                    │
+                 │ Mistake analyses         │
+                 │ Contact messages         │
+                 └──────────────────────────┘
 ```
 
-### How the Hybrid ML + AI Pipeline Works
+---
 
-1. **Initial ML Screen**: When a student submits an answer, the input text is transformed via a `TfidfVectorizer` and evaluated with a trained `LogisticRegression` model. This quickly produces an initial mistake hypothesis and confidence score.
-2. **Deep Reasoning with Gemini**: The question, answer, subject, and ML classifier context are passed to the Gemini model. Gemini evaluates the validity of the work, checks the mathematical or conceptual steps, overrides the ML hypothesis if necessary, and writes the friendly pedagogical explanation and follow-up practice problem.
-3. **Persistence**: The verified diagnosis, mistake category, tips, and difficulty are stored in SQLite for the history and dashboard analytics.
+## 🔄 How the AI + ML Pipeline Works
+
+### 1. Student Submission
+
+The student enters:
+
+* Question
+* Their answer
+* Subject
+
+The frontend sends the information to the FastAPI backend.
+
+### 2. Initial ML Classification
+
+The submitted text is processed using:
+
+```text
+TF-IDF Vectorizer
+       ↓
+Logistic Regression
+       ↓
+Initial Mistake Category
+       ↓
+Confidence Score
+```
+
+The ML model provides a fast initial classification.
+
+### 3. Gemini Analysis
+
+The backend sends the question, student answer, subject, and relevant ML context to Gemini.
+
+Gemini evaluates the response and determines:
+
+* Whether the answer is correct
+* What mistake occurred
+* Why the mistake occurred
+* What the correct answer is
+* How the student can improve
+* A similar practice question
+* Difficulty level
+
+### 4. Final Result
+
+The backend validates the AI response and returns structured JSON to the frontend.
+
+### 5. Persistence
+
+The completed analysis is stored in SQLite and becomes available in:
+
+* History
+* Dashboard statistics
+* Mistake breakdown
+
+---
+
+## 📁 Project Structure
+
+```text
+ai-mistake-analyzer/
+│
+├── backend/
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   ├── auth.py
+│   ├── ai_service.py
+│   ├── ml_model.py
+│   │
+│   └── routes/
+│       ├── auth.py
+│       ├── dashboard.py
+│       ├── analyze.py
+│       ├── history.py
+│       ├── profile.py
+│       └── contact.py
+│
+├── frontend/
+│   ├── index.html
+│   ├── register.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── analyze.html
+│   ├── history.html
+│   ├── profile.html
+│   ├── contact.html
+│   ├── about.html
+│   │
+│   ├── css/
+│   │   └── style.css
+│   │
+│   └── js/
+│       ├── auth.js
+│       ├── dashboard.js
+│       ├── analyze.js
+│       ├── history.js
+│       ├── profile.js
+│       └── contact.js
+│
+├── data/
+│   └── training_data.csv
+│
+├── .env.example
+├── .gitignore
+├── requirements.txt
+├── README.md
+└── LICENSE
+```
 
 ---
 
 ## 🗄️ Database Structure
 
-SQLite table schema (`mistakes`):
+### Users
 
-| Column | Type | Description |
-| :--- | :--- | :--- |
-| `id` | `INTEGER PRIMARY KEY AUTOINCREMENT` | Unique record ID |
-| `question` | `TEXT` | The original question |
-| `student_answer` | `TEXT` | Student's submitted answer |
-| `subject` | `TEXT` | Subject (Math, Programming, etc.) |
-| `is_correct` | `BOOLEAN` | Whether the answer is correct (1 or 0) |
-| `mistake_type` | `TEXT` | Mistake category or "No Mistake" |
-| `confidence` | `REAL` | Confidence score between 0.0 and 1.0 |
-| `correct_answer` | `TEXT` | The actual correct solution |
-| `why_wrong` | `TEXT` | Short diagnostic statement of the flaw |
-| `explanation` | `TEXT` | Step-by-step friendly explanation |
-| `learning_tip` | `TEXT` | Actionable advice for future problems |
-| `practice_question` | `TEXT` | Follow-up question to test understanding |
-| `difficulty` | `TEXT` | Problem difficulty (Easy, Medium, Hard) |
-| `created_at` | `TIMESTAMP` | Automatic timestamp of submission |
+```text
+users
+├── id
+├── full_name
+├── email
+├── password_hash
+└── created_at
+```
+
+### Mistakes
+
+```text
+mistakes
+├── id
+├── user_id
+├── question
+├── student_answer
+├── subject
+├── is_correct
+├── mistake_type
+├── confidence
+├── correct_answer
+├── why_wrong
+├── explanation
+├── learning_tip
+├── practice_question
+├── difficulty
+└── created_at
+```
+
+### Contact Messages
+
+```text
+contact_messages
+├── id
+├── name
+├── email
+├── message
+└── created_at
+```
+
+Each mistake analysis is associated with the authenticated user so that users only access their own learning history.
 
 ---
 
 ## 📡 API Endpoints
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/api/analyze` | Evaluates question & answer, returns structured diagnosis |
-| `GET` | `/api/history` | Retrieves all past analyses ordered newest first |
-| `GET` | `/api/history/{id}` | Retrieves full details for a specific analysis record |
-| `DELETE` | `/api/history/{id}` | Deletes a single analysis record |
-| `DELETE` | `/api/history` | Clears all history records |
-| `GET` | `/api/stats` | Returns total counts, accuracy %, and mistake breakdown |
-| `GET` | `/api/health` | Returns server health and ML model training state |
+| Method   | Endpoint            | Description                               |
+| -------- | ------------------- | ----------------------------------------- |
+| `POST`   | `/api/analyze`      | Analyze a submitted question and answer   |
+| `GET`    | `/api/history`      | Retrieve the authenticated user's history |
+| `GET`    | `/api/history/{id}` | Retrieve a specific analysis              |
+| `DELETE` | `/api/history/{id}` | Delete one analysis                       |
+| `DELETE` | `/api/history`      | Clear analysis history                    |
+| `GET`    | `/api/stats`        | Retrieve dashboard statistics             |
+| `GET`    | `/api/health`       | Check backend and ML status               |
 
-### Sample Analysis Request
+Authentication endpoints may additionally include:
+
+| Method | Endpoint             | Description             |
+| ------ | -------------------- | ----------------------- |
+| `POST` | `/api/auth/register` | Create an account       |
+| `POST` | `/api/auth/login`    | Authenticate a user     |
+| `POST` | `/api/auth/logout`   | End the current session |
+
+---
+
+## 🧪 Example Analysis Request
 
 ```http
 POST /api/analyze
 Content-Type: application/json
+```
 
+```json
 {
   "question": "What is 5 × 6?",
   "student_answer": "35",
@@ -159,7 +389,7 @@ Content-Type: application/json
 }
 ```
 
-### Sample Analysis Response
+### Example Response
 
 ```json
 {
@@ -169,7 +399,7 @@ Content-Type: application/json
   "correct_answer": "30",
   "why_wrong": "The multiplication was calculated incorrectly.",
   "explanation": "5 multiplied by 6 equals 30, not 35.",
-  "learning_tip": "Double-check your times tables, or break 5 × 6 down into 5 × 5 (25) + 5 (30).",
+  "learning_tip": "Double-check the multiplication before submitting your answer.",
   "practice_question": "What is 7 × 8?",
   "difficulty": "Easy"
 }
@@ -177,54 +407,248 @@ Content-Type: application/json
 
 ---
 
-## 🚀 Installation & Local Setup
+# 🚀 Installation & Local Setup
 
-### Prerequisites
-- Python 3.10 or higher
-- A Gemini API Key from [Google AI Studio](https://aistudio.google.com/)
+## Prerequisites
 
-### Step 1: Clone or Navigate to the Repository
+Make sure you have:
+
+* Python 3.10 or higher
+* Git
+* A Google Gemini API key
+
+---
+
+## 1. Clone the Repository
+
 ```bash
-git clone <your-repo-url>
+git clone <your-repository-url>
+
 cd ai-mistake-analyzer
 ```
 
-### Step 2: Create and Activate Virtual Environment
-```bash
-# macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
+---
 
-# Windows
+## 2. Create a Virtual Environment
+
+### Windows
+
+```bash
 python -m venv venv
+
 venv\Scripts\activate
 ```
 
-### Step 3: Install Dependencies
+### macOS / Linux
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+---
+
+## 3. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Configure Environment Variables
-Copy the `.env.example` file to `.env`:
-```bash
-cp .env.example .env
-```
-Edit `.env` and insert your Gemini API Key:
+---
+
+## 4. Configure Environment Variables
+
+Create a `.env` file from `.env.example`.
+
 ```env
 GEMINI_API_KEY=your_actual_api_key_here
-PORT=8000
 HOST=0.0.0.0
+PORT=8000
 ```
 
-### Step 5: Run the Server
+**Never commit your real API key to GitHub.**
+
+Make sure `.env` is included in `.gitignore`.
+
+---
+
+## 5. Run the Application
+
 ```bash
 uvicorn backend.main:app --reload --port 8000
 ```
 
-### Step 6: Open the Web Application
-Open your browser and navigate to:
-```
+---
+
+## 6. Open the Application
+
+Open:
+
+```text
 http://localhost:8000
 ```
-FastAPI automatically serves the HTML/CSS/JavaScript frontend directly from the root URL.
+
+---
+
+# 🔐 Security
+
+The project follows basic security practices including:
+
+* Password hashing
+* Session-based authentication
+* Protected application routes
+* User-specific mistake history
+* Environment variables for API secrets
+* No Gemini API key exposed in frontend JavaScript
+* Backend validation of incoming requests
+* Users cannot access another user's analysis records
+
+> For production deployment, additional security hardening such as HTTPS, secure cookie configuration, CSRF protection where applicable, rate limiting, secret management, and stronger session management should be considered.
+
+---
+
+# 🎨 UI Pages
+
+The application contains the following main pages:
+
+```text
+Welcome
+│
+├── Register
+├── Login
+│
+└── Dashboard
+    │
+    ├── Dashboard
+    ├── Analyze
+    ├── History
+    ├── Contact
+    ├── Profile
+    ├── About Us
+    └── Logout
+```
+
+The interface uses a dark-only design and is responsive across:
+
+* 💻 Desktop
+* 📱 Mobile
+* 📟 Tablet
+
+---
+
+# 📈 Learning Philosophy
+
+AI Mistake Analyzer is built around a simple idea:
+
+> **A mistake is not just an incorrect answer — it is information about what needs to be learned.**
+
+Instead of focusing only on the final answer, the platform focuses on:
+
+```text
+Mistake
+   ↓
+Understand
+   ↓
+Learn
+   ↓
+Practice
+   ↓
+Improve
+```
+
+---
+
+# 🧩 Future Improvements
+
+Possible future improvements include:
+
+* More advanced ML training data
+* Subject-specific mistake detection
+* More detailed learning analytics
+* Improved practice-question generation
+* Additional language support
+* Production deployment
+* Advanced progress tracking
+
+---
+
+# 🤝 Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+To contribute:
+
+```bash
+git fork <your-repository-url>
+```
+
+Create a new branch:
+
+```bash
+git checkout -b feature/your-feature
+```
+
+Commit your changes:
+
+```bash
+git commit -m "Add your feature"
+```
+
+Push the branch:
+
+```bash
+git push origin feature/your-feature
+```
+
+Then open a Pull Request.
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+See the [`LICENSE`](LICENSE) file for details.
+
+---
+
+# 👩‍💻 Author
+
+**AI Mistake Analyzer**
+
+Built as an AI/ML learning project combining:
+
+* Full-stack web development
+* Machine Learning
+* Generative AI
+* Database management
+* Responsive UI design
+
+---
+
+## ⭐ If You Like This Project
+
+If you find **AI Mistake Analyzer** useful or interesting, consider giving the repository a ⭐ on GitHub.
+
+---
+
+## 📌 Project Summary
+
+**AI Mistake Analyzer** combines:
+
+```text
+FastAPI
+   +
+Vanilla JavaScript
+   +
+SQLite
+   +
+Scikit-learn
+   +
+Google Gemini
+   =
+AI-Powered Learning Platform
+```
+
+> **Understand your mistakes. Learn smarter.**

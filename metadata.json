@@ -1,0 +1,6 @@
+{
+  "name": "AI Mistake Analyzer",
+  "description": "An AI-powered learning platform that helps students understand their mistakes and improve learning through step-by-step diagnostic feedback, practice, and personal analytics.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

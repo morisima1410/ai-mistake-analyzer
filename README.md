@@ -2,9 +2,22 @@
 
 > **Understand your mistakes. Learn smarter.**
 
+[![AI](https://img.shields.io/badge/AI-Gemini%203.8%20Flash-blueviolet)](#)
+[![Machine Learning](https://img.shields.io/badge/ML-scikit--learn-orange)](#)
+[![Backend](https://img.shields.io/badge/Backend-FastAPI%20%7C%20Python-009688)](#)
+[![Frontend](https://img.shields.io/badge/Frontend-Vanilla%20JS%20%7C%20HTML5%20%7C%20CSS3-yellow)](#)
+[![Database](https://img.shields.io/badge/Database-SQLite3-003B57)](#)
+[![License](https://img.shields.io/badge/License-MIT-green)](#)
+
 AI Mistake Analyzer is an intelligent AI/ML-powered learning platform designed to help students understand **why an answer is incorrect**, rather than simply showing the correct answer.
 
 The platform analyzes a student's response, identifies the type of mistake, explains what went wrong, provides personalized learning tips, and generates a similar practice question to help strengthen understanding.
+
+---
+
+## 🏷️ Topics & Tags
+
+`ai` • `artificial-intelligence` • `machine-learning` • `gemini-ai` • `educational-platform` • `edtech` • `student-learning` • `mistake-analyzer` • `fastapi` • `python` • `javascript` • `sqlite` • `scikit-learn` • `web-application`
 
 ---
 

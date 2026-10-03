@@ -4,6 +4,7 @@ Uses scikit-learn (TF-IDF Vectorizer + Logistic Regression) as a fast, local ini
 to detect the likely category of error based on the question and student answer.
 """
 
+import sys
 import os
 import csv
 from typing import Dict, Any, Optional
@@ -28,7 +29,7 @@ class MistakeClassifier:
             from sklearn.linear_model import LogisticRegression
             import numpy as np
         except ImportError:
-            print("[ML Model] scikit-learn not available in current environment.")
+            print("[ML Model] scikit-learn not available in current environment.", file=sys.stderr)
             return False
 
         texts = []

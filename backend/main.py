@@ -77,28 +77,32 @@ if os.path.exists(js_dir):
 
 
 # Page Routes
-def serve_html(filename: str):
+def serve_html(filename: str, status_code: int = 200):
     file_path = os.path.join(FRONTEND_DIR, filename)
     if os.path.exists(file_path):
-        return FileResponse(file_path)
+        return FileResponse(file_path, status_code=status_code)
     # Root fallback
     root_path = os.path.join(BASE_DIR, filename)
-    return FileResponse(root_path)
+    return FileResponse(root_path, status_code=status_code)
 
 
 @app.get("/", response_class=FileResponse)
+@app.get("/index", response_class=FileResponse)
+@app.get("/home", response_class=FileResponse)
 @app.get("/index.html", response_class=FileResponse)
 def page_welcome():
     return serve_html("index.html")
 
 
 @app.get("/register", response_class=FileResponse)
+@app.get("/signup", response_class=FileResponse)
 @app.get("/register.html", response_class=FileResponse)
 def page_register():
     return serve_html("register.html")
 
 
 @app.get("/login", response_class=FileResponse)
+@app.get("/signin", response_class=FileResponse)
 @app.get("/login.html", response_class=FileResponse)
 def page_login():
     return serve_html("login.html")
@@ -135,9 +139,21 @@ def page_contact():
 
 
 @app.get("/about", response_class=FileResponse)
+@app.get("/about-us", response_class=FileResponse)
 @app.get("/about.html", response_class=FileResponse)
 def page_about():
     return serve_html("about.html")
+
+
+@app.get("/404", response_class=FileResponse)
+@app.get("/404.html", response_class=FileResponse)
+def page_not_found():
+    return serve_html("404.html", status_code=404)
+
+
+@app.exception_handler(404)
+async def custom_404_handler(request, exc):
+    return serve_html("404.html", status_code=404)
 
 
 if __name__ == "__main__":

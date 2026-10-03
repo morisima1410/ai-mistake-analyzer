@@ -316,7 +316,7 @@ def main():
                 }
                 for r in rows
             ]
-            print(json.dumps({"status": 200, "data": results}))
+            print(json.dumps(results))
             return
 
         # 8. Delete History Item

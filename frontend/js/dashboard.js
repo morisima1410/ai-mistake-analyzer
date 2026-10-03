@@ -60,7 +60,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Render Mistake Breakdown
     breakdownList.innerHTML = "";
-    const breakdown = data.mistake_breakdown || {};
+    const breakdown = (data && typeof data.mistake_breakdown === "object" && data.mistake_breakdown !== null)
+      ? data.mistake_breakdown
+      : {};
     const entries = Object.entries(breakdown);
 
     if (entries.length === 0) {
@@ -100,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Render Recent Mistakes
     recentList.innerHTML = "";
-    const recent = data.recent_mistakes || [];
+    const recent = Array.isArray(data?.recent_mistakes) ? data.recent_mistakes : [];
     if (recent.length === 0) {
       emptyRecent.style.display = "block";
     } else {

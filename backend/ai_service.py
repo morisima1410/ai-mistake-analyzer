@@ -5,6 +5,7 @@ and generate pedagogical explanations, learning tips, and practice questions.
 Uses google-genai SDK when available, with standard library urllib HTTP fallback.
 """
 
+import sys
 import os
 import json
 import re
@@ -18,6 +19,26 @@ try:
 except ImportError:
     pass
 
+# Ensure GEMINI_API_KEY is loaded from .env or .env.example if available
+_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if not os.environ.get("GEMINI_API_KEY"):
+    for _fname in [".env", ".env.example"]:
+        _fpath = os.path.join(_BASE_DIR, _fname)
+        if os.path.exists(_fpath):
+            try:
+                with open(_fpath, "r", encoding="utf-8") as _f:
+                    for _l in _f:
+                        _l = _l.strip()
+                        if _l.startswith("GEMINI_API_KEY="):
+                            _val = _l.split("=", 1)[1].strip().strip('"').strip("'")
+                            if _val:
+                                os.environ["GEMINI_API_KEY"] = _val
+                                break
+            except Exception:
+                pass
+        if os.environ.get("GEMINI_API_KEY"):
+            break
+
 VALID_MISTAKE_TYPES = [
     "No Mistake",
     "Conceptual Mistake",
@@ -29,9 +50,9 @@ VALID_MISTAKE_TYPES = [
 ]
 
 CANDIDATE_MODELS = [
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
     "gemini-2.5-flash",
-    "gemini-3.1-flash-lite",
-    "gemini-3.8-flash",
 ]
 
 
@@ -200,7 +221,7 @@ def analyze_with_gemini(
                 data = json.loads(cleaned)
                 return parse_gemini_json(data)
             except Exception as e:
-                print(f"[AI Service SDK] {model_name} error: {e}")
+                print(f"[AI Service SDK] {model_name} error: {e}", file=sys.stderr)
                 time.sleep(0.2)
     except ImportError:
         pass
@@ -233,7 +254,7 @@ def analyze_with_gemini(
                         parsed = json.loads(cleaned)
                         return parse_gemini_json(parsed)
         except Exception as e:
-            print(f"[AI Service REST] {model_name} error: {e}")
+            print(f"[AI Service REST] {model_name} error: {e}", file=sys.stderr)
             time.sleep(0.2)
 
     # 3. Graceful heuristic fallback

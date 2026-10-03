@@ -72,7 +72,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
       if (!response.ok) throw new Error("Failed to load history.");
 
-      historyData = await response.json();
+      const result = await response.json();
+      historyData = Array.isArray(result)
+        ? result
+        : (result && Array.isArray(result.data) ? result.data : []);
       renderHistory(historyData);
     } catch (err) {
       console.error(err);
@@ -86,7 +89,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   function renderHistory(items) {
     historyTableBody.innerHTML = "";
 
-    if (!items || items.length === 0) {
+    const list = Array.isArray(items)
+      ? items
+      : (items && Array.isArray(items.data) ? items.data : []);
+
+    if (!list || list.length === 0) {
       emptyHistory.style.display = "block";
       historyTableContainer.style.display = "none";
       clearHistoryBtn.style.display = "none";
@@ -97,7 +104,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     historyTableContainer.style.display = "block";
     clearHistoryBtn.style.display = "inline-flex";
 
-    items.forEach((item) => {
+    list.forEach((item) => {
       const tr = document.createElement("tr");
 
       const isCorrect = Boolean(item.is_correct);
